@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Positron",
+  "name": "SpotShot Maps",
   "metadata": {
     "mapbox:autocomposite": false,
     "mapbox:groups": {
@@ -12,21 +12,102 @@
       "b6371a3f2f5a9932464fa3867530a2e5": {
         "collapsed": false,
         "name": "Transportation"
+      },
+      "1444849334699.1902": {
+        "collapsed": true,
+        "name": "Bridges"
+      },
+      "1444849345966.4436": {
+        "collapsed": false,
+        "name": "Roads"
+      },
+      "1444849354174.1904": {
+        "collapsed": true,
+        "name": "Tunnels"
+      },
+      "1444849364238.8171": {
+        "collapsed": false,
+        "name": "Buildings"
+      },
+      "1444849382550.77": {
+        "collapsed": false,
+        "name": "Water"
+      },
+      "1444849388993.3071": {
+        "collapsed": false,
+        "name": "Land"
       }
     },
     "mapbox:type": "template",
-    "openmaptiles:mapbox:owner": "openmaptiles",
-    "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t",
-    "openmaptiles:version": "3.x"
+    "starlinemaps:mapbox:owner": "starlinemaps",
+    "starlinemaps:mapbox:source:url": "mapbox://starlinemaps.4qljc88t",
+    "starlinemaps:version": "3.x",
+    "maputnik:renderer": "mbgljs"
   },
   "sources": {
-    "openmaptiles": {
-      "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key={key}"
+    "starlinemaps": {
+      "tiles": [
+        "https://maps.starline.ru/api/tiles/base/{z}/{x}/{y}.pbf"
+      ],
+      "name": "StarLine Maps Base Tiles",
+      "format": "pbf",
+      "basename": "v3.7.mbtiles",
+      "id": "starlinetiles",
+      "attribution": "<a href=\"https://starline.ru\" target=\"_blank\">&copy; StarLine</a> <a href=\"http://www.openstreetmap.org/about/\" rel=\"noreferrer\" target=\"_blank\">&copy; OpenStreetMap contributors</a>",
+      "center": [
+        -12.2168,
+        28.6135,
+        4
+      ],
+      "description": "The best tiles you've ever seen",
+      "maxzoom": 16,
+      "minzoom": 0,
+      "pixel_scale": "256",
+      "maskLevel": "8",
+      "bounds": [
+        -180,
+        -85.0511,
+        180,
+        85.0511
+      ],
+      "planettime": "1508716800000",
+      "version": "3.6.2",
+      "tilejson": "2.0.0",
+      "type": "vector"
+    },
+    "poi": {
+      "tiles": [
+        "https://maps.starline.ru/api/tiles/poi/{z}/{x}/{y}.pbf"
+      ],
+      "name": "StarLine Maps POI",
+      "format": "pbf",
+      "basename": "v3.7.mbtiles",
+      "id": "starlinepoitiles",
+      "attribution": "<a href=\"http://maps.starline.ru\" target=\"_blank\">&copy; StarLine Maps</a>",
+      "center": [
+        -12.2168,
+        28.6135,
+        4
+      ],
+      "description": "",
+      "maxzoom": 20,
+      "minzoom": 11,
+      "pixel_scale": "256",
+      "maskLevel": "8",
+      "bounds": [
+        -180,
+        -85.0511,
+        180,
+        85.0511
+      ],
+      "planettime": "1508716800000",
+      "version": "3.6.2",
+      "tilejson": "2.0.0",
+      "type": "vector"
     }
   },
-  "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "sprite": "https://maps.starline.ru/mapstyles/default/sprite",
+  "glyphs": "https://maps.starline.ru/mapstyles/default/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -36,7 +117,7 @@
     {
       "id": "park",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "park",
       "filter": ["==", "$type", "Polygon"],
       "layout": {"visibility": "visible"},
@@ -45,7 +126,7 @@
     {
       "id": "water",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "water",
       "filter": [
         "all",
@@ -58,7 +139,7 @@
     {
       "id": "landcover_ice_shelf",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "landcover",
       "maxzoom": 8,
       "filter": [
@@ -72,7 +153,7 @@
     {
       "id": "landcover_glacier",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "landcover",
       "maxzoom": 8,
       "filter": [
@@ -89,7 +170,7 @@
     {
       "id": "landuse_residential",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "landuse",
       "maxzoom": 16,
       "filter": [
@@ -106,7 +187,7 @@
     {
       "id": "landcover_wood",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "landcover",
       "minzoom": 10,
       "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "wood"]],
@@ -119,7 +200,7 @@
     {
       "id": "waterway",
       "type": "line",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "waterway",
       "filter": ["==", "$type", "LineString"],
       "layout": {"visibility": "visible"},
@@ -128,7 +209,7 @@
     {
       "id": "water_name",
       "type": "symbol",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "water_name",
       "filter": ["==", "$type", "LineString"],
       "layout": {
@@ -149,7 +230,7 @@
     {
       "id": "building",
       "type": "fill",
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "building",
       "minzoom": 12,
       "paint": {
@@ -162,7 +243,7 @@
       "id": "tunnel_motorway_casing",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -185,7 +266,7 @@
       "id": "tunnel_motorway_inner",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -207,7 +288,7 @@
       "id": "aeroway-taxiway",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 12,
       "filter": ["all", ["in", "class", "taxiway"]],
@@ -226,7 +307,7 @@
       "id": "aeroway-runway-casing",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": ["all", ["in", "class", "runway"]],
@@ -245,7 +326,7 @@
       "id": "aeroway-area",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 4,
       "filter": [
@@ -263,7 +344,7 @@
       "id": "aeroway-runway",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": [
@@ -286,7 +367,7 @@
       "id": "road_area_pier",
       "type": "fill",
       "metadata": {},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "pier"]],
       "layout": {"visibility": "visible"},
@@ -296,7 +377,7 @@
       "id": "road_pier",
       "type": "line",
       "metadata": {},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "filter": ["all", ["==", "$type", "LineString"], ["in", "class", "pier"]],
       "layout": {"line-cap": "round", "line-join": "round"},
@@ -309,7 +390,7 @@
       "id": "highway_path",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "filter": ["all", ["==", "$type", "LineString"], ["==", "class", "path"]],
       "layout": {
@@ -327,7 +408,7 @@
       "id": "highway_minor",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 8,
       "filter": [
@@ -350,7 +431,7 @@
       "id": "highway_major_casing",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 11,
       "filter": [
@@ -373,7 +454,7 @@
       "id": "highway_major_inner",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 11,
       "filter": [
@@ -395,7 +476,7 @@
       "id": "highway_major_subtle",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "maxzoom": 11,
       "filter": [
@@ -414,7 +495,7 @@
       "id": "highway_motorway_casing",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -442,7 +523,7 @@
       "id": "highway_motorway_inner",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -471,7 +552,7 @@
       "id": "highway_motorway_subtle",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "maxzoom": 6,
       "filter": [
@@ -493,7 +574,7 @@
       "id": "railway_transit",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
       "filter": [
@@ -508,7 +589,7 @@
       "id": "railway_transit_dashline",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
       "filter": [
@@ -527,7 +608,7 @@
       "id": "railway_service",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
       "filter": [
@@ -542,7 +623,7 @@
       "id": "railway_service_dashline",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
       "filter": [
@@ -562,7 +643,7 @@
       "id": "railway",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": [
@@ -580,7 +661,7 @@
       "id": "railway_dashline",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": [
@@ -599,7 +680,7 @@
       "id": "highway_motorway_bridge_casing",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -623,7 +704,7 @@
       "id": "highway_motorway_bridge_inner",
       "type": "line",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -648,7 +729,7 @@
       "id": "highway_name_other",
       "type": "symbol",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation_name",
       "filter": [
         "all",
@@ -679,7 +760,7 @@
       "id": "highway_name_motorway",
       "type": "symbol",
       "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "transportation_name",
       "filter": [
         "all",
@@ -708,7 +789,7 @@
       "id": "boundary_state",
       "type": "line",
       "metadata": {"mapbox:group": "a14c9607bc7954ba1df7205bf660433f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "boundary",
       "filter": ["==", "admin_level", 4],
       "layout": {
@@ -728,7 +809,7 @@
       "id": "boundary_country_z0-4",
       "type": "line",
       "metadata": {"mapbox:group": "a14c9607bc7954ba1df7205bf660433f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "boundary",
       "maxzoom": 5,
       "filter": ["all", ["==", "admin_level", 2], ["!has", "claimed_by"]],
@@ -744,7 +825,7 @@
       "id": "boundary_country_z5-",
       "type": "line",
       "metadata": {"mapbox:group": "a14c9607bc7954ba1df7205bf660433f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "boundary",
       "minzoom": 5,
       "filter": ["==", "admin_level", 2],
@@ -760,7 +841,7 @@
       "id": "place_other",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
       "filter": [
@@ -796,7 +877,7 @@
       "id": "place_suburb",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 15,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "suburb"]],
@@ -821,7 +902,7 @@
       "id": "place_village",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "village"]],
@@ -848,7 +929,7 @@
       "id": "place_town",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 15,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "town"]],
@@ -876,7 +957,7 @@
       "id": "place_city",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
       "filter": [
@@ -908,7 +989,7 @@
       "id": "place_capital",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 12,
       "filter": [
@@ -940,7 +1021,7 @@
       "id": "place_city_large",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 12,
       "filter": [
@@ -977,7 +1058,7 @@
       "id": "place_state",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 12,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "state"]],
@@ -999,7 +1080,7 @@
       "id": "place_country_other",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 8,
       "filter": [
@@ -1028,7 +1109,7 @@
       "id": "place_country_minor",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 8,
       "filter": [
@@ -1058,7 +1139,7 @@
       "id": "place_country_major",
       "type": "symbol",
       "metadata": {"mapbox:group": "101da9f13b64a08fa4b6ac1168e89e5f"},
-      "source": "openmaptiles",
+      "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 6,
       "filter": [
@@ -1086,5 +1167,5 @@
       }
     }
   ],
-  "id": "positron"
+  "id": "spotshot-maps"
 }
