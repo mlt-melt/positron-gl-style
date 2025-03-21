@@ -282,7 +282,11 @@
     {
       "id": "tunnel-motorway-casing",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849354174.1904",
+        "taxonomy:group": "tunnels",
+        "taxonomy:casing": "tunnel-motorway"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
@@ -303,9 +307,12 @@
       }
     },
     {
-      "id": "tunnel_motorway_inner",
+      "id": "tunnel-motorway",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849354174.1904",
+        "taxonomy:group": "tunnels"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
@@ -327,7 +334,10 @@
     {
       "id": "aeroway-taxiway",
       "type": "line",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "bridges"
+      },
       "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 12,
@@ -365,7 +375,10 @@
     {
       "id": "aeroway-area",
       "type": "fill",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "landuse"
+      },
       "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 4,
@@ -383,7 +396,10 @@
     {
       "id": "aeroway-runway",
       "type": "line",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "bridges"
+      },
       "source": "starlinemaps",
       "source-layer": "aeroway",
       "minzoom": 11,
@@ -427,9 +443,12 @@
       }
     },
     {
-      "id": "highway_path",
+      "id": "highway-path",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "filter": ["all", ["==", "$type", "LineString"], ["==", "class", "path"]],
@@ -445,9 +464,12 @@
       }
     },
     {
-      "id": "highway_minor",
+      "id": "highway-minor",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 8,
@@ -532,9 +554,13 @@
       "paint": {"line-color": "hsla(0, 0%, 85%, 0.69)", "line-width": 2}
     },
     {
-      "id": "highway_motorway_casing",
+      "id": "highway-motorway-casing",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads",
+        "taxonomy:casing": "highway-motorway"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 6,
@@ -611,9 +637,12 @@
       }
     },
     {
-      "id": "railway_transit",
+      "id": "railway-transit",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
@@ -647,7 +676,10 @@
     {
       "id": "railway_service",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 16,
@@ -682,7 +714,10 @@
     {
       "id": "railway",
       "type": "line",
-      "metadata": {"mapbox:group": "b6371a3f2f5a9932464fa3867530a2e5"},
+      "metadata": {
+        "mapbox:group": "1444849345966.4436",
+        "taxonomy:group": "roads"
+      },
       "source": "starlinemaps",
       "source-layer": "transportation",
       "minzoom": 13,
@@ -878,9 +913,12 @@
       }
     },
     {
-      "id": "place_other",
+      "id": "place-other",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
@@ -939,9 +977,12 @@
       }
     },
     {
-      "id": "place_village",
+      "id": "place-village",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
@@ -966,9 +1007,12 @@
       }
     },
     {
-      "id": "place_town",
+      "id": "place-town",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 15,
@@ -994,9 +1038,12 @@
       }
     },
     {
-      "id": "place_city",
+      "id": "place-city",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 14,
@@ -1026,9 +1073,12 @@
       }
     },
     {
-      "id": "place_capital",
+      "id": "place-city-capital",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 12,
@@ -1117,9 +1167,12 @@
       }
     },
     {
-      "id": "place_country_other",
+      "id": "place-country-other",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
+      "metadata": {
+        "mapbox:group": "1444849242106.713",
+        "taxonomy:group": "places"
+      },
       "source": "starlinemaps",
       "source-layer": "place",
       "maxzoom": 8,
